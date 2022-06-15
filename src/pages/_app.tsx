@@ -9,7 +9,7 @@ const MyApp = ({Component, pageProps}) => {
         <title>Fitme</title>
         <link rel="app icon" href="/icon.jpg" />
       </Head>
-      <GlobalNav/>
+      <GlobalNav />
       <Component {...pageProps} />
     </>
   );

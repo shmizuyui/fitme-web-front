@@ -1,11 +1,22 @@
-const LessonDetail = () => {
+import {useRouter} from 'next/router';
+import {LessonDetail} from
+  '../../../components/pages/user/lessons/Lessons/LessonDetail';
+import {useLesson} from '../../../hooks/user/useLesson';
+
+const Lesson = () => {
+  const router = useRouter();
+  const {id} = router.query;
+  const {data, error, isLoading, isError} = useLesson(String(id));
+
+  if (isError) return <p>{error}</p>;
+
   return (
-    <div className="h-screen w-3/4 mx-auto">
+    <div className="h-screen w-2/3 mx-auto">
       <div className="pt-32">
-        <h1 className="font-bold mx-2 text-center text-3xl">レッスン詳細</h1>
+        {isLoading ? <p>Loading...</p> : <LessonDetail lesson={data.lesson} />}
       </div>
     </div>
   );
 };
 
-export default LessonDetail;
+export default Lesson;

@@ -3,7 +3,7 @@ import {LessonDetail} from
   '../../../components/pages/user/lessons/Lessons/LessonDetail';
 import {useLesson} from '../../../hooks/user/useLesson';
 
-const LessonId = () => {
+const Lesson = () => {
   const router = useRouter();
   const {id} = router.query;
   const {data, error, isLoading, isError} = useLesson(String(id));
@@ -19,4 +19,4 @@ const LessonId = () => {
   );
 };
 
-export default LessonId;
+export default Lesson;

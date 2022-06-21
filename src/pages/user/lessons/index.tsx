@@ -1,6 +1,5 @@
 import {useLessons} from '../../../hooks/user/useLessons';
-import {Lessons as LessonList} from
-  '../../../components/pages/user/lessons/Lessons';
+import {Lessons as LessonList} from '../../../components/pages/user/lessons/Lessons';
 import {Pagination} from '../../../components/common/Pagination';
 import {useState} from 'react';
 

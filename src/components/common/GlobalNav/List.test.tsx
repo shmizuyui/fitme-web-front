@@ -1,5 +1,5 @@
-import { render } from "@testing-library/react";
-import { List } from "./List";
+import {render} from '@testing-library/react';
+import {List} from './List';
 
 const link = "url";
 const children = "test";

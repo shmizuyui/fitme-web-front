@@ -1,13 +1,13 @@
-import Link from "next/link";
-import { Lesson } from "../../../../../apis/models/lesson";
-import { categoryBy } from "../../../../../utils/categoryBy";
+import Link from 'next/link';
+import {Lesson} from '../../../../../apis/models/lesson';
+import {categoryBy} from '../../../../../utils/categoryBy';
 
 type Props = {
   lesson: Lesson;
 };
-export const LessonCard = ({ lesson }: Props) => {
+export const LessonCard = ({lesson}: Props) => {
   return (
-    <Link href={`/user/lesson/${lesson.id}`}>
+    <Link href={`/user/lessons/${lesson.id}`}>
       <a className="w-3/6">
         <li className="flex m-2 p-2 border-2 border-gray-500">
           <img src="/sample.jpg" alt="" className="w-5/12" />

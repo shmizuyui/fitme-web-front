@@ -1,5 +1,5 @@
-import { render, screen } from "@testing-library/react";
-import { Lessons } from ".";
+import {render, screen} from '@testing-library/react';
+import {Lessons} from '.';
 
 const lessons = [
   {

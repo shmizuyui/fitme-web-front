@@ -10,6 +10,6 @@ jest.mock('next/router', () => ({
 
 describe('LessonDetail', () => {
   test('詳細画面をレンダリングすること', () => {
-    render(<LessonDetail/>);
+    render(<LessonDetail />);
   });
 });

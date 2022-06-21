@@ -1,8 +1,8 @@
-import '../styles/globals.css';
-import Head from 'next/head';
-import {GlobalNav} from '../components/common/GlobalNav';
+import "../styles/globals.css";
+import Head from "next/head";
+import { GlobalNav } from "../components/common/GlobalNav";
 
-const MyApp = ({Component, pageProps}) => {
+const MyApp = ({ Component, pageProps }) => {
   return (
     <>
       <Head>

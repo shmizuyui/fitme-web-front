@@ -1,16 +1,16 @@
 import useSWR from "swr";
 import { fetcher } from "../../apis/client";
-import { Lesson } from "../../apis/models/lesson";
 import { Pagination } from "../../apis/models/pagination";
+import { Trainer } from "../../apis/models/trainer";
 import { BaseType } from "../type";
 
-type LessonsResponse = {
-  lessons: Lesson[];
+type TrainerResponse = {
+  trainers: Trainer[];
 } & Pagination;
 
-export const useLessons = (pageIndex: number) => {
+export const useTrainers = (pageIndex: number) => {
   const { data, error } = useSWR(
-    `/api/v1/user/lessons?page=${pageIndex}`,
+    `/api/v1/user/trainers?page=${pageIndex}`,
     fetcher
   );
   return {
@@ -18,5 +18,5 @@ export const useLessons = (pageIndex: number) => {
     error: data?.error,
     isLoading: !error && !data,
     isError: error,
-  } as BaseType<LessonsResponse>;
+  } as BaseType<TrainerResponse>;
 };

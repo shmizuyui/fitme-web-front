@@ -6,7 +6,6 @@ type Props = {
 };
 
 export const Trainers = ({trainers}: Props) => {
-  console.log(trainers);
   return (
     <div>
       <h1 className="text-center font-bold mb-3 text-3xl">トレーナー一覧</h1>

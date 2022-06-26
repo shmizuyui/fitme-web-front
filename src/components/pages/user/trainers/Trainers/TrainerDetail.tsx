@@ -13,7 +13,6 @@ export const TrainerDetail = ({ trainer }: Props) => {
   ];
   return (
     <>
-      <h1 className="text-center font-bold text-3xl mb-12">トレーナー</h1>
       <div className="flex">
         <div className="w-1/3 mr-2">
           <img src={trainer.image} alt="" className="w-screen" />

@@ -1,12 +1,12 @@
-import Link from 'next/link';
-import {Trainer} from '../../../../../apis/models/trainer';
-import {categoryBy} from '../../../../../utils/categoryBy';
+import Link from "next/link";
+import { Trainer } from "../../../../../apis/models/trainer";
+import { categoryBy } from "../../../../../utils/categoryBy";
 
 type Props = {
   trainer: Trainer;
 };
 
-export const TrainerCard = ({trainer}: Props) => {
+export const TrainerCard = ({ trainer }: Props) => {
   const categories = [
     ...new Set(trainer.lessons.map((lesson) => lesson.category)),
   ];

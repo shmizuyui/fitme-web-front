@@ -1,12 +1,11 @@
-import {useRouter} from 'next/router';
-import {LessonDetail} from
-  '../../../components/pages/user/lessons/Lessons/LessonDetail';
-import {useLesson} from '../../../hooks/user/useLesson';
+import { useRouter } from "next/router";
+import { LessonDetail } from "../../../components/pages/user/lessons/Lessons/LessonDetail";
+import { useLesson } from "../../../hooks/user/useLesson";
 
 const Lesson = () => {
   const router = useRouter();
-  const {id} = router.query;
-  const {data, error, isLoading, isError} = useLesson(String(id));
+  const { id } = router.query;
+  const { data, error, isLoading, isError } = useLesson(String(id));
 
   if (isError) return <p>{error}</p>;
 

@@ -15,6 +15,7 @@ const trainer = {
   name_kana: 'name_kana',
   gender: 'gender',
   history_year: 10,
+  career: 'career',
   image: 'image',
   message: 'message',
   lessons: [lesson],

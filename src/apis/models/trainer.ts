@@ -6,6 +6,7 @@ export type Trainer = {
   name_kana: string;
   gender: string;
   history_year: number;
+  career: string;
   image: string;
   message: string;
   lessons: Lesson[];

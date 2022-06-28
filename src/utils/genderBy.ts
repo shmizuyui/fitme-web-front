@@ -4,5 +4,7 @@ export const genderBy = (gender: string) => {
       return "男性";
     case "female":
       return "女性";
+    default:
+      return "どちらでもない";
   }
 };

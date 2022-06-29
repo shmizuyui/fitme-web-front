@@ -1,11 +1,11 @@
-import {useLessons} from '../../../hooks/user/useLessons';
-import {Lessons as LessonList} from '../../../components/pages/user/lessons/Lessons';
-import {Pagination} from '../../../components/common/Pagination';
-import {useState} from 'react';
+import { useLessons } from "../../../hooks/user/useLessons";
+import { Lessons as LessonList } from "../../../components/pages/user/lessons/Lessons";
+import { Pagination } from "../../../components/common/Pagination";
+import { useState } from "react";
 
 const Lessons = () => {
   const [pageIndex, setPageIndex] = useState(1);
-  const {data, error, isLoading, isError} = useLessons(pageIndex);
+  const { data, error, isLoading, isError } = useLessons(pageIndex);
 
   if (isError) return <p className="pt-32">Failed to load</p>;
   if (error) return <p className="pt-32">{error}</p>;

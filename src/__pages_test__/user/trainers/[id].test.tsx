@@ -1,5 +1,6 @@
 import {render} from '@testing-library/react';
-import Lesson from '../../../pages/user/lessons/[id]';
+import Trainer from '../../../pages/user/trainers/[id]';
+
 jest.mock('next/router', () => ({
   useRouter() {
     return {
@@ -8,8 +9,8 @@ jest.mock('next/router', () => ({
   },
 }));
 
-describe('Lesson', () => {
+describe('Trainer', () => {
   test('詳細画面をレンダリングすること', () => {
-    render(<Lesson />);
+    render(<Trainer />);
   });
 });

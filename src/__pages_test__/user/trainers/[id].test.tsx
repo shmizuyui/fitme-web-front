@@ -1,7 +1,7 @@
-import {render} from '@testing-library/react';
-import Trainer from '../../../pages/user/trainers/[id]';
+import { render } from "@testing-library/react";
+import Trainer from "../../../pages/user/trainers/[id]";
 
-jest.mock('next/router', () => ({
+jest.mock("next/router", () => ({
   useRouter() {
     return {
       query: {},
@@ -9,8 +9,8 @@ jest.mock('next/router', () => ({
   },
 }));
 
-describe('Trainer', () => {
-  test('詳細画面をレンダリングすること', () => {
+describe("Trainer", () => {
+  test("詳細画面をレンダリングすること", () => {
     render(<Trainer />);
   });
 });

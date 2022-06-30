@@ -1,11 +1,11 @@
-import {Lesson} from '../../../../../apis/models/lesson';
-import {categoryBy} from '../../../../../utils/categoryBy';
+import { Lesson } from "../../../../../apis/models/lesson";
+import { categoryBy } from "../../../../../utils/categoryBy";
 
 type Props = {
   lesson: Lesson;
 };
 
-export const LessonDetail = ({lesson}: Props) => {
+export const LessonDetail = ({ lesson }: Props) => {
   return (
     <div>
       <div className="flex">

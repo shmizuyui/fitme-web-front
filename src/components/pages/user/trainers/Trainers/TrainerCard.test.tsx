@@ -6,7 +6,16 @@ const lesson = {
   price: 1000,
   category: "yoga",
   time: 50,
+<<<<<<< HEAD
   content: "content",
+=======
+  content: 'content',
+  trainer: {
+    image: 'image',
+    name: 'name',
+    gender: 'male',
+  },
+>>>>>>> レッスン検索機能
 };
 
 const trainer = {

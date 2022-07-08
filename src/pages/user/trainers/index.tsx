@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from "react";
 import { Pagination } from "../../../components/common/Pagination";
 import { Trainers as TrainersList } from "../../../components/pages/user/trainers/Trainers";
@@ -6,14 +7,24 @@ import { useTrainers } from "../../../hooks/user/useTrainers";
 const Trainers = () => {
   const [pageIndex, setPageIndex] = useState(1);
   const { data, error, isLoading, isError } = useTrainers(pageIndex);
+=======
+import {useState} from 'react';
+import {Errors} from '../../../components/common/Errors';
+import {GlobalContainer} from '../../../components/common/GlobalContainer';
+import {Pagination} from '../../../components/common/Pagination';
+import {Trainers as TrainersList} from '../../../components/pages/user/trainers/Trainers';
+import {useTrainers} from '../../../hooks/user/useTrainers';
 
-  if (isError) return <p className="pt-32">Failed to load</p>;
-  if (error) return <p className="pt-32">{error}</p>;
+const Trainers = () => {
+  const [pageIndex, setPageIndex] = useState(1);
+  const {data, error, isLoading} = useTrainers(pageIndex);
+>>>>>>> レッスン検索機能
+
+  if (error) return <Errors>{error}</Errors>;
 
   return (
-    <div className="h-screen w-2/3 mx-auto">
-      <div className="pt-32">
-        {isLoading ? (
+    <GlobalContainer title='トレーナー一覧'>
+      {isLoading ? (
           <p>Loading...</p>
         ) : (
           <div>
@@ -26,8 +37,7 @@ const Trainers = () => {
             />
           </div>
         )}
-      </div>
-    </div>
+    </GlobalContainer>
   );
 };
 

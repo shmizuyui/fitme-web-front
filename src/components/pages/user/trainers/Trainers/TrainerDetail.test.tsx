@@ -1,4 +1,4 @@
-import { getByText, render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { TrainerDetail } from "./TrainerDetail";
 
 const lesson = {
@@ -8,6 +8,11 @@ const lesson = {
   category: "yoga",
   time: 50,
   content: "content",
+  trainer: {
+    image: "image",
+    name: "name",
+    gender: "male",
+  },
 };
 
 const trainer = {
@@ -24,9 +29,6 @@ const trainer = {
 
 describe("TrainerDetail", () => {
   test("コンポーネントをレンダリングすること", () => {
-    render(<TrainerDetail trainer={trainer} />);
-
-    expect(screen.getByText("トレーナー")).toBeTruthy();
     const { container } = render(<TrainerDetail trainer={trainer} />);
     const paragraphs = container.getElementsByTagName("p");
     const contents = container.getElementsByTagName("span");
@@ -43,7 +45,7 @@ describe("TrainerDetail", () => {
     expect(paragraphs[6].textContent).toBe(trainer.message);
     expect(paragraphs[7].textContent).toBe("このトレーナーのレッスン一覧");
 
-    expect(contents.length).toBe(3);
+    expect(contents.length).toBe(5);
     expect(contents[0].textContent).toBe("ヨガ");
     expect(contents[1].textContent).toBe("男性");
   });

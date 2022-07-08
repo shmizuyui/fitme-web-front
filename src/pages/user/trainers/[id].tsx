@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useRouter } from "next/router";
 import { TrainerDetail } from "../../../components/pages/user/trainers/Trainers/TrainerDetail";
 import { useTrainer } from "../../../hooks/user/useTrainer";
@@ -6,19 +7,27 @@ const Trainer = () => {
   const router = useRouter();
   const { id } = router.query;
   const { data, error, isLoading, isError } = useTrainer(String(id));
+=======
+import {useRouter} from 'next/router';
+import {Errors} from '../../../components/common/Errors';
+import {GlobalContainer} from '../../../components/common/GlobalContainer';
+import {Loading} from '../../../components/common/Loading';
+import {TrainerDetail} from
+  '../../../components/pages/user/trainers/Trainers/TrainerDetail';
+import {useTrainer} from '../../../hooks/user/useTrainer';
 
-  if (isError) return <p>{error}</p>;
+const Trainer = () => {
+  const router = useRouter();
+  const {id} = router.query;
+  const {data, error, isLoading} = useTrainer(String(id));
+>>>>>>> レッスン検索機能
+
+  if (error) return <Errors>{error}</Errors>;
 
   return (
-    <div className="h-screen w-2/3 mx-auto">
-      <div className="pt-32">
-        {isLoading ? (
-          <p>Loading...</p>
-        ) : (
-          <TrainerDetail trainer={data.trainer} />
-        )}
-      </div>
-    </div>
+    <GlobalContainer title='トレーナー'>
+      {isLoading ? <Loading/> : <TrainerDetail trainer={data.trainer} />}
+    </GlobalContainer>
   );
 };
 

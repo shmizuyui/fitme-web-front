@@ -1,6 +1,5 @@
-export type BaseType<T> = {
+export type BaseResponse<T> = {
   data: T;
   error: string | null;
   isLoading: boolean;
-  isError: boolean;
 };

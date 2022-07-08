@@ -2,7 +2,8 @@ import useSWR from "swr";
 import { fetcher } from "../../apis/client";
 import { Pagination } from "../../apis/models/pagination";
 import { Trainer } from "../../apis/models/trainer";
-import { BaseType } from "../type";
+import { handleErrorMessage } from "../../utils/errorMessage";
+import { BaseResponse } from "../BaseResponse";
 
 type TrainerResponse = {
   trainers: Trainer[];
@@ -15,8 +16,7 @@ export const useTrainers = (pageIndex: number) => {
   );
   return {
     data: data?.data,
-    error: data?.error,
+    error: handleErrorMessage(error, data?.error),
     isLoading: !error && !data,
-    isError: error,
-  } as BaseType<TrainerResponse>;
+  } as BaseResponse<TrainerResponse>;
 };

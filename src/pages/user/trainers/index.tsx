@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import { useState } from "react";
-import { Pagination } from "../../../components/common/Pagination";
-import { Trainers as TrainersList } from "../../../components/pages/user/trainers/Trainers";
-import { useTrainers } from "../../../hooks/user/useTrainers";
-
-const Trainers = () => {
-  const [pageIndex, setPageIndex] = useState(1);
-  const { data, error, isLoading, isError } = useTrainers(pageIndex);
-=======
 import {useState} from 'react';
 import {Errors} from '../../../components/common/Errors';
 import {GlobalContainer} from '../../../components/common/GlobalContainer';
@@ -18,7 +8,6 @@ import {useTrainers} from '../../../hooks/user/useTrainers';
 const Trainers = () => {
   const [pageIndex, setPageIndex] = useState(1);
   const {data, error, isLoading} = useTrainers(pageIndex);
->>>>>>> レッスン検索機能
 
   if (error) return <Errors>{error}</Errors>;
 

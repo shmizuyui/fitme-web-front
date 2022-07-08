@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { Trainers } from ".";
-=======
-import {render} from '@testing-library/react';
-import {Trainers} from '.';
->>>>>>> レッスン検索機能
 
 const lesson = {
   id: 1,
@@ -12,16 +7,12 @@ const lesson = {
   price: 1000,
   category: "yoga",
   time: 50,
-<<<<<<< HEAD
   content: "content",
-=======
-  content: 'content',
   trainer: {
-    name: 'name',
-    gender: 'male',
-    image: 'image',
+    name: "name",
+    gender: "male",
+    image: "image",
   },
->>>>>>> レッスン検索機能
 };
 
 const trainers = [
@@ -41,10 +32,5 @@ const trainers = [
 describe("Trainers", () => {
   test("コンポーネントをレンダリングすること", () => {
     render(<Trainers trainers={trainers} />);
-<<<<<<< HEAD
-
-    expect(screen.getByText("トレーナー一覧")).toBeTruthy();
-=======
->>>>>>> レッスン検索機能
   });
 });

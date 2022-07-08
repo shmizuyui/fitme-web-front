@@ -1,24 +1,14 @@
-<<<<<<< HEAD
 import Link from "next/link";
 import { Lesson } from "../../../../../apis/models/lesson";
+import { Trainer } from "../../../../../apis/models/trainer";
 import { categoryBy } from "../../../../../utils/categoryBy";
-=======
-import Link from 'next/link';
-import {Lesson} from '../../../../../apis/models/lesson';
-import {Trainer} from '../../../../../apis/models/trainer';
-import {categoryBy} from '../../../../../utils/categoryBy';
-import {genderBy} from '../../../../../utils/genderBy';
->>>>>>> レッスン検索機能
+import { genderBy } from "../../../../../utils/genderBy";
 
 type Props = {
   lesson: Lesson;
   trainer?: Trainer;
 };
-<<<<<<< HEAD
-export const LessonCard = ({ lesson }: Props) => {
-=======
-export const LessonCard = ({lesson, trainer}: Props) => {
->>>>>>> レッスン検索機能
+export const LessonCard = ({ lesson, trainer }: Props) => {
   return (
     <Link href={`/user/lessons/${lesson.id}`}>
       <a className="w-3/6">
@@ -30,8 +20,8 @@ export const LessonCard = ({lesson, trainer}: Props) => {
               height={200}
               width={200}
             />
-            <div className='text-center'>
-              <span className='text-xl'>
+            <div className="text-center">
+              <span className="text-xl">
                 {trainer ? trainer.name : lesson.trainer.name}
               </span>
               <span>
@@ -47,8 +37,8 @@ export const LessonCard = ({lesson, trainer}: Props) => {
             <p className="font-bold text-center">
               {lesson.price}円/{lesson.time}min
             </p>
-            <div className='text-center'>
-              <span className='rounded border-2 p-1'>
+            <div className="text-center">
+              <span className="rounded border-2 p-1">
                 {categoryBy(lesson.category)}
               </span>
             </div>

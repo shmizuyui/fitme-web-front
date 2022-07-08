@@ -1,11 +1,11 @@
-import {useState} from 'react';
-import {apiClient} from '../../apis/client';
-import {Lesson} from '../../apis/models/lesson';
-import {Pagination} from '../../apis/models/pagination';
-import {FormParams} from '../../components/pages/user/lessons/SearchForm';
-import {handleErrorMessage} from '../../utils/errorMessage';
-import {BaseResponse} from '../BaseResponse';
-import {useApiBase} from './useApiBase';
+import { useState } from "react";
+import { apiClient } from "../../apis/client";
+import { Lesson } from "../../apis/models/lesson";
+import { Pagination } from "../../apis/models/pagination";
+import { FormParams } from "../../components/pages/user/lessons/SearchForm";
+import { handleErrorMessage } from "../../utils/errorMessage";
+import { BaseResponse } from "../BaseResponse";
+import { useApiBase } from "./useApiBase";
 
 type LessonsResponse = {
   lessons: Lesson[];
@@ -15,10 +15,10 @@ export type Others = {
   fetchLessons: (pageIndex: number, formParams: FormParams) => void;
   setFormParams: (params: FormParams) => void;
   formParams: FormParams;
-}
+};
 export const useLessons = () => {
-  const {data, setData, error, setError, isLoading, setIsLoading} =
-  useApiBase<LessonsResponse>();
+  const { data, setData, error, setError, isLoading, setIsLoading } =
+    useApiBase<LessonsResponse>();
   const [formParams, setFormParams] = useState<FormParams | null>(null);
   const fetchLessons = async (pageIndex: number, formParams: FormParams) => {
     const params = {
@@ -30,16 +30,16 @@ export const useLessons = () => {
     };
     setIsLoading(true);
     await apiClient
-        .get('/api/v1/user/lessons', {params: params})
-        .then((response) => {
-          setData(response.data);
-        })
-        .catch((error) => setError(error));
+      .get("/api/v1/user/lessons", { params: params })
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => setError(error));
     setIsLoading(false);
   };
   return {
     data: data?.data,
-    error: handleErrorMessage(error, data?.error ?? ''),
+    error: handleErrorMessage(error, data?.error ?? ""),
     isLoading: isLoading || !data,
     fetchLessons,
     setFormParams,

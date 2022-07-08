@@ -1,19 +1,19 @@
-import {Lesson} from '../../../../../apis/models/lesson';
-import {categoryBy} from '../../../../../utils/categoryBy';
-import {genderBy} from '../../../../../utils/genderBy';
+import { Lesson } from "../../../../../apis/models/lesson";
+import { categoryBy } from "../../../../../utils/categoryBy";
+import { genderBy } from "../../../../../utils/genderBy";
 
 type Props = {
   lesson: Lesson;
 };
 
-export const LessonDetail = ({lesson}: Props) => {
+export const LessonDetail = ({ lesson }: Props) => {
   return (
     <div>
       <div className="flex">
         <div className="mr-2">
           <img src={lesson.trainer.image} alt="" height={200} width={200} />
-          <div className='text-center'>
-            <span className='text-xl'>{lesson.trainer.name}</span>
+          <div className="text-center">
+            <span className="text-xl">{lesson.trainer.name}</span>
             <span>({genderBy(lesson.trainer.gender)})</span>
           </div>
         </div>

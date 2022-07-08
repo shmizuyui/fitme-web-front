@@ -1,36 +1,36 @@
-import {render} from '@testing-library/react';
-import {Trainers} from '.';
+import { render } from "@testing-library/react";
+import { Trainers } from ".";
 
 const lesson = {
   id: 1,
-  title: 'title',
+  title: "title",
   price: 1000,
-  category: 'yoga',
+  category: "yoga",
   time: 50,
-  content: 'content',
+  content: "content",
   trainer: {
-    name: 'name',
-    gender: 'male',
-    image: 'image',
+    name: "name",
+    gender: "male",
+    image: "image",
   },
 };
 
 const trainers = [
   {
     id: 1,
-    name: 'name',
-    name_kana: 'name_kana',
-    gender: 'gender',
+    name: "name",
+    name_kana: "name_kana",
+    gender: "gender",
     history_year: 10,
-    career: 'career',
-    image: 'image',
-    message: 'message',
+    career: "career",
+    image: "image",
+    message: "message",
     lessons: [lesson],
   },
 ];
 
-describe('Trainers', () => {
-  test('コンポーネントをレンダリングすること', () => {
+describe("Trainers", () => {
+  test("コンポーネントをレンダリングすること", () => {
     render(<Trainers trainers={trainers} />);
   });
 });

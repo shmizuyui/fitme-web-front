@@ -9,5 +9,5 @@ export type Lesson = {
     image: string;
     name: string;
     gender: string;
-  }
+  };
 };

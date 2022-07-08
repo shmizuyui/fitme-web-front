@@ -1,13 +1,13 @@
-import {Trainer} from '../../../../../apis/models/trainer';
-import {categoryBy} from '../../../../../utils/categoryBy';
-import {genderBy} from '../../../../../utils/genderBy';
-import {LessonCard} from '../../lessons/Lessons/LessonCard';
+import { Trainer } from "../../../../../apis/models/trainer";
+import { categoryBy } from "../../../../../utils/categoryBy";
+import { genderBy } from "../../../../../utils/genderBy";
+import { LessonCard } from "../../lessons/Lessons/LessonCard";
 
 type Props = {
   trainer: Trainer;
 };
 
-export const TrainerDetail = ({trainer}: Props) => {
+export const TrainerDetail = ({ trainer }: Props) => {
   const categories = [
     ...new Set(trainer.lessons.map((lesson) => lesson.category)),
   ];
@@ -26,10 +26,7 @@ export const TrainerDetail = ({trainer}: Props) => {
             ))}
           </div>
           <p className="text-center text-gray-400">{trainer.name_kana}</p>
-          <p
-            className=
-              "text-center text-2xl font-bold border-b-4 border-teal-500 mb-2"
-          >
+          <p className="text-center text-2xl font-bold border-b-4 border-teal-500 mb-2">
             {trainer.name}
           </p>
           <div className="flex mt-2">
@@ -51,15 +48,12 @@ export const TrainerDetail = ({trainer}: Props) => {
         </div>
       </div>
       <div className="mt-12">
-        <p
-          className=
-            "my-4 border-b-4 text-2xl text-center font-bold border-yellow-200"
-        >
+        <p className="my-4 border-b-4 text-2xl text-center font-bold border-yellow-200">
           このトレーナーのレッスン一覧
         </p>
         <ul className="flex flex-wrap">
           {trainer.lessons.map((lesson) => (
-            <LessonCard key={lesson.id} lesson={lesson} trainer={trainer}/>
+            <LessonCard key={lesson.id} lesson={lesson} trainer={trainer} />
           ))}
         </ul>
       </div>

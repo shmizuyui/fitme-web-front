@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import { useState } from "react";
 
 type BaseResponse<T> = {
   data: T;
@@ -8,7 +8,7 @@ type BaseResponse<T> = {
 
 export const useApiBase = <T>() => {
   const [data, setData] = useState<BaseResponse<T> | null>(null);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   return {

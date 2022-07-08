@@ -1,10 +1,10 @@
-import {ReactNode} from 'react';
+import { ReactNode } from "react";
 
 type Props = {
   children: ReactNode;
   title: string;
-}
-export const GlobalContainer = ({children, title}: Props) => {
+};
+export const GlobalContainer = ({ children, title }: Props) => {
   return (
     <div className="h-screen w-2/3 mx-auto">
       <div className="pt-32">

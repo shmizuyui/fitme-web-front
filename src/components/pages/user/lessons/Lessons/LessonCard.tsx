@@ -1,25 +1,47 @@
 import Link from 'next/link';
 import {Lesson} from '../../../../../apis/models/lesson';
+import {Trainer} from '../../../../../apis/models/trainer';
 import {categoryBy} from '../../../../../utils/categoryBy';
+import {genderBy} from '../../../../../utils/genderBy';
 
 type Props = {
   lesson: Lesson;
+  trainer?: Trainer;
 };
-export const LessonCard = ({lesson}: Props) => {
+export const LessonCard = ({lesson, trainer}: Props) => {
   return (
     <Link href={`/user/lessons/${lesson.id}`}>
       <a className="w-3/6">
         <li className="flex m-2 p-2 border-2 border-gray-500">
-          <img src="/sample.jpg" alt="" className="w-5/12" />
+          <div>
+            <img
+              src={trainer ? trainer.image : lesson.trainer.image}
+              alt=""
+              height={200}
+              width={200}
+            />
+            <div className='text-center'>
+              <span className='text-xl'>
+                {trainer ? trainer.name : lesson.trainer.name}
+              </span>
+              <span>
+                ({genderBy(trainer ? trainer.gender : lesson.trainer.gender)})
+              </span>
+            </div>
+          </div>
           <div
-            className="flex flex-col justify-between
-          text-xl flex-auto text-center my-3"
+            className="flex w-3/4 flex-col justify-between
+          text-xl my-3 ml-2"
           >
-            <p className="font-bold">{lesson.title}</p>
-            <p className="font-bold">
+            <p className="mx-auto font-bold">{lesson.title}</p>
+            <p className="font-bold text-center">
               {lesson.price}円/{lesson.time}min
             </p>
-            <span>{categoryBy(lesson.category)}</span>
+            <div className='text-center'>
+              <span className='rounded border-2 p-1'>
+                {categoryBy(lesson.category)}
+              </span>
+            </div>
           </div>
         </li>
       </a>

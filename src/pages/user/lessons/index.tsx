@@ -1,33 +1,48 @@
-import { useLessons } from "../../../hooks/user/useLessons";
-import { Lessons as LessonList } from "../../../components/pages/user/lessons/Lessons";
-import { Pagination } from "../../../components/common/Pagination";
-import { useState } from "react";
+import {useLessons} from '../../../hooks/user/useLessons';
+import {Lessons as LessonList} from '../../../components/pages/user/lessons/Lessons';
+import {Pagination} from '../../../components/common/Pagination';
+import {GlobalContainer} from '../../../components/common/GlobalContainer';
+import {Loading} from '../../../components/common/Loading';
+import {Errors} from '../../../components/common/Errors';
+import {useEffect} from 'react';
+import {SearchForm} from '../../../components/pages/user/lessons/SearchForm';
+import {Empty} from '../../../components/common/Empty';
+
 
 const Lessons = () => {
-  const [pageIndex, setPageIndex] = useState(1);
-  const { data, error, isLoading, isError } = useLessons(pageIndex);
+  const {data, error, isLoading, fetchLessons, setFormParams, formParams} =
+  useLessons();
 
-  if (isError) return <p className="pt-32">Failed to load</p>;
-  if (error) return <p className="pt-32">{error}</p>;
+  useEffect(() => {
+    if (!data) fetchLessons(1, formParams);
+  }, [data]);
+
+  if (error) return <Errors>{error}</Errors>;
 
   return (
-    <div className="h-screen w-2/3 mx-auto">
-      <div className="pt-32">
-        {isLoading ? (
-          <p>Loading...</p>
+    <GlobalContainer title="レッスン一覧">
+      <SearchForm fetchLessons={fetchLessons} setFormParams={setFormParams} />
+      {isLoading ? (
+        <Loading />
         ) : (
-          <div>
+          <>
+            {!data.lessons.length ? (
+            <Empty />
+          ) : (
             <LessonList lessons={data.lessons} />
+          )}
             <Pagination
-              isFirstPage={pageIndex === 1}
-              isLastPage={data.is_last_page}
-              onPageBack={() => setPageIndex(pageIndex - 1)}
-              onPageNext={() => setPageIndex(pageIndex + 1)}
+              isFirstPage={data.current_page === 1}
+              isLastPage={
+                data.current_page === data.total_page ||
+                data.lessons.length === 0
+              }
+              onPageBack={() => fetchLessons(data.current_page - 1, formParams)}
+              onPageNext={() => fetchLessons(data.current_page + 1, formParams)}
             />
-          </div>
+          </>
         )}
-      </div>
-    </div>
+    </GlobalContainer>
   );
 };
 

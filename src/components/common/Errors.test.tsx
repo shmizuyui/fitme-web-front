@@ -1,9 +1,10 @@
-import React from 'react';
 import {render} from '@testing-library/react';
-import Lessons from '../../../pages/user/lessons';
+import {Errors} from './Errors';
 
-describe('Lessons', () => {
+const children = 'test';
+
+describe('Errors', () => {
   test('コンポーネントをレンダリングすること', () => {
-    render(<Lessons />);
+    render(<Errors>{children}</Errors>);
   });
 });

@@ -5,4 +5,9 @@ export type Lesson = {
   price: number;
   time: number;
   content: string;
+  trainer: {
+    image: string;
+    name: string;
+    gender: string;
+  }
 };

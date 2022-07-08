@@ -1,3 +1,4 @@
 export type Pagination = {
-  is_last_page: boolean;
+  current_page: number;
+  total_page: number;
 };

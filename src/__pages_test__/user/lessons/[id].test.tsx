@@ -3,7 +3,7 @@ import Lesson from '../../../pages/user/lessons/[id]';
 jest.mock('next/router', () => ({
   useRouter() {
     return {
-      query: {},
+      query: {id: 1},
     };
   },
 }));

@@ -1,9 +1,10 @@
 import { GlobalContainer } from "../../components/common/GlobalContainer";
+import { LoginForm } from "../../components/pages/user/LoginForm";
 
 const Login = () => {
   return (
     <GlobalContainer title="ログイン">
-      <p>Loginやで</p>
+      <LoginForm />
     </GlobalContainer>
   );
 };

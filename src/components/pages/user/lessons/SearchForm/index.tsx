@@ -38,11 +38,7 @@ export const SearchForm = ({ fetchLessons, setFormParams }: Props) => {
               <div className="my-2 pl-3 border-l-2">
                 {!isLoading &&
                   data.categories.map((category) => (
-<<<<<<< HEAD
-                    <span key={category}>
-=======
                     <label key={category} className="mr-2">
->>>>>>> レッスン検索機能、テスト
                       <input
                         id="category"
                         type="checkbox"
@@ -50,13 +46,8 @@ export const SearchForm = ({ fetchLessons, setFormParams }: Props) => {
                         className="mr-1"
                         {...register("categories")}
                       />
-<<<<<<< HEAD
-                      <label className="mr-2">{categoryBy(category)}</label>
-                    </span>
-=======
                       {categoryBy(category)}
                     </label>
->>>>>>> レッスン検索機能、テスト
                   ))}
               </div>
             </div>
@@ -65,11 +56,7 @@ export const SearchForm = ({ fetchLessons, setFormParams }: Props) => {
               <div className="my-2 pl-3 border-l-2">
                 {!isLoading &&
                   data.genders.map((gender) => (
-<<<<<<< HEAD
-                    <span key={gender}>
-=======
                     <label key={gender} className="mr-2">
->>>>>>> レッスン検索機能、テスト
                       <input
                         id="gender"
                         type="checkbox"
@@ -77,13 +64,8 @@ export const SearchForm = ({ fetchLessons, setFormParams }: Props) => {
                         className="mr-1"
                         {...register("genders")}
                       />
-<<<<<<< HEAD
-                      <label className="mr-2">{genderBy(gender)}</label>
-                    </span>
-=======
                       {genderBy(gender)}
                     </label>
->>>>>>> レッスン検索機能、テスト
                   ))}
               </div>
             </div>

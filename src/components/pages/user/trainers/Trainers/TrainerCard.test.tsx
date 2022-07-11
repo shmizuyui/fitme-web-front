@@ -7,6 +7,11 @@ const lesson = {
   category: "yoga",
   time: 50,
   content: "content",
+  trainer: {
+    image: "image",
+    name: "name",
+    gender: "male",
+  },
 };
 
 const trainer = {

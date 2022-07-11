@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { Trainers } from ".";
 
 const lesson = {
@@ -8,6 +8,11 @@ const lesson = {
   category: "yoga",
   time: 50,
   content: "content",
+  trainer: {
+    name: "name",
+    gender: "male",
+    image: "image",
+  },
 };
 
 const trainers = [
@@ -27,7 +32,5 @@ const trainers = [
 describe("Trainers", () => {
   test("コンポーネントをレンダリングすること", () => {
     render(<Trainers trainers={trainers} />);
-
-    expect(screen.getByText("トレーナー一覧")).toBeTruthy();
   });
 });

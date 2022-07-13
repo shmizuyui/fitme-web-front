@@ -2,7 +2,7 @@ import { useState } from "react";
 import { apiClient } from "../../apis/client";
 import { Lesson } from "../../apis/models/lesson";
 import { Pagination } from "../../apis/models/pagination";
-import { FormParams } from "../../components/pages/user/lessons/SearchForm";
+import { FormParams } from "../../components/pages/user/lessons/LessonSearch";
 import { handleErrorMessage } from "../../utils/errorMessage";
 import { BaseResponse } from "../BaseResponse";
 import { useApiBase } from "./useApiBase";

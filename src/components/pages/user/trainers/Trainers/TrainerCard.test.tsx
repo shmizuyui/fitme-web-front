@@ -18,7 +18,7 @@ const trainer = {
   id: 1,
   name: "name",
   name_kana: "name_kana",
-  gender: "gender",
+  gender: "male",
   history_year: 10,
   career: "career",
   image: "image",
@@ -35,10 +35,11 @@ describe("TrainerCard", () => {
     const paragraphs = container.getElementsByTagName("p");
     const contents = container.getElementsByTagName("span");
 
-    expect(paragraphs.length).toBe(3);
-    expect(paragraphs[0].textContent).toBe(trainer.name);
-    expect(paragraphs[1].textContent).toBe(trainer.name_kana);
-    expect(paragraphs[2].textContent).toBe(
+    expect(paragraphs.length).toBe(4);
+    expect(paragraphs[0].textContent).toBe("(男性)");
+    expect(paragraphs[1].textContent).toBe(trainer.name);
+    expect(paragraphs[2].textContent).toBe(trainer.name_kana);
+    expect(paragraphs[3].textContent).toBe(
       `トレーナー歴：${trainer.history_year}年`
     );
 

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Trainer } from "../../../../../apis/models/trainer";
 import { categoryBy } from "../../../../../utils/categoryBy";
+import { genderBy } from "../../../../../utils/genderBy";
 
 type Props = {
   trainer: Trainer;
@@ -14,7 +15,10 @@ export const TrainerCard = ({ trainer }: Props) => {
     <Link href={`/user/trainers/${trainer.id}`}>
       <a className="w-3/6">
         <li className="flex m-2 p-2 border-2 border-gray-500">
-          <img src={trainer.image} alt="" height={180} width={180} />
+          <div>
+            <img src={trainer.image} alt="" height={180} width={180} />
+            <p className="text-center">({genderBy(trainer.gender)})</p>
+          </div>
           <div
             className="flex flex-col justify-between
           flex-auto text-center pl-2"

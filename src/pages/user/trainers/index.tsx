@@ -1,19 +1,28 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import { Errors } from "../../../components/common/Errors";
 import { GlobalContainer } from "../../../components/common/GlobalContainer";
 import { Loading } from "../../../components/common/Loading";
 import { Pagination } from "../../../components/common/Pagination";
 import { Trainers as TrainersList } from "../../../components/pages/user/trainers/Trainers";
+import { TrainerSearch } from "../../../components/pages/user/trainers/TrainerSearch";
 import { useTrainers } from "../../../hooks/user/useTrainers";
 
 const Trainers = () => {
-  const [pageIndex, setPageIndex] = useState(1);
-  const { data, error, isLoading } = useTrainers(pageIndex);
+  const { data, error, isLoading, fetchTrainers, formParams, setFormParams } =
+    useTrainers();
+
+  useEffect(() => {
+    if (!data) fetchTrainers(1, formParams);
+  }, [data]);
 
   if (error) return <Errors>{error}</Errors>;
 
   return (
     <GlobalContainer title="トレーナー一覧">
+      <TrainerSearch
+        fetchTrainers={fetchTrainers}
+        setFormParams={setFormParams}
+      />
       {isLoading ? (
         <Loading />
       ) : (
@@ -25,8 +34,8 @@ const Trainers = () => {
               data.current_page === data.total_page ||
               data.trainers.length === 0
             }
-            onPageBack={() => setPageIndex(pageIndex - 1)}
-            onPageNext={() => setPageIndex(pageIndex + 1)}
+            onPageBack={() => fetchTrainers(data.current_page - 1, formParams)}
+            onPageNext={() => fetchTrainers(data.current_page + 1, formParams)}
           />
         </>
       )}

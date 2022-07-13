@@ -5,7 +5,7 @@ import { GlobalContainer } from "../../../components/common/GlobalContainer";
 import { Loading } from "../../../components/common/Loading";
 import { Errors } from "../../../components/common/Errors";
 import { useEffect } from "react";
-import { SearchForm } from "../../../components/pages/user/lessons/SearchForm";
+import { LessonSearch } from "../../../components/pages/user/lessons/LessonSearch";
 import { Empty } from "../../../components/common/Empty";
 
 const Lessons = () => {
@@ -20,7 +20,7 @@ const Lessons = () => {
 
   return (
     <GlobalContainer title="レッスン一覧">
-      <SearchForm fetchLessons={fetchLessons} setFormParams={setFormParams} />
+      <LessonSearch fetchLessons={fetchLessons} setFormParams={setFormParams} />
       {isLoading ? (
         <Loading />
       ) : (

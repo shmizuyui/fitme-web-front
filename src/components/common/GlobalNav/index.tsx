@@ -1,9 +1,15 @@
 import Link from "next/link";
+import { useContext } from "react";
+import { AuthContext } from "../../../hooks/user/useCurrentUser";
+import { useLogout } from "../../../hooks/user/useLogout";
 import { handleRouter } from "../../../utils/router";
 import { Button } from "../Button";
 import { List } from "./List";
 
 export const GlobalNav = () => {
+  const { loading, isSignedIn } = useContext(AuthContext);
+  const { logoutUser } = useLogout();
+  const handleLogout = () => logoutUser();
   return (
     <header className="w-full h-32 fixed">
       <div className="h-20 bg-zinc-500 flex items-center">
@@ -13,10 +19,17 @@ export const GlobalNav = () => {
               <img src="/logo.png" alt="" width={230} />
             </a>
           </Link>
-          <div className="flex items-center text-xl text-white">
-            <Button onClick={handleRouter("/user")}>ログイン</Button>
-            <Button onClick={handleRouter("/user")}>新規登録</Button>
-          </div>
+          {!loading &&
+            (isSignedIn ? (
+              <Button className="text-xl text-white" onClick={handleLogout}>
+                ログアウト
+              </Button>
+            ) : (
+              <div className="flex items-center text-xl text-white">
+                <Button onClick={handleRouter("/user")}>ログイン</Button>
+                <Button onClick={handleRouter("/user/signUp")}>新規登録</Button>
+              </div>
+            ))}
         </div>
       </div>
       <nav className="bg-yellow-200">

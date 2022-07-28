@@ -21,9 +21,12 @@ export const GlobalNav = () => {
           </Link>
           {!loading &&
             (isSignedIn ? (
-              <Button className="text-xl text-white" onClick={handleLogout}>
-                ログアウト
-              </Button>
+              <div className="flex items-center text-xl text-white">
+                <Button onClick={handleRouter("/user/myPage")}>
+                  マイページ
+                </Button>
+                <Button onClick={handleLogout}>ログアウト</Button>
+              </div>
             ) : (
               <div className="flex items-center text-xl text-white">
                 <Button onClick={handleRouter("/user")}>ログイン</Button>

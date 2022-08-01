@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../hooks/user/useCurrentUser";
 import { useEdit } from "../../../hooks/user/useEdit";
+import { genderBy } from "../../../utils/genderBy";
 import { SignButton } from "../../common/SignButton";
 
 export type FormParams = {
@@ -32,7 +33,7 @@ export const EditForm = () => {
               type="text"
               defaultValue={currentUser?.name}
               className="border-2 w-full p-1"
-              {...register("name")}
+              {...register("name", { required: true })}
             />
           </div>
           <span>フリガナ</span>
@@ -42,12 +43,14 @@ export const EditForm = () => {
               type="text"
               defaultValue={currentUser?.name_kana}
               className="border-2 w-full p-1"
-              {...register("nameKana")}
+              {...register("nameKana", { required: true })}
             />
           </div>
           <div className="mb-3">
             <span className="block">性別</span>
-            <p>{currentUser?.gender}</p>
+            <span className="block border-2 p-1">
+              {genderBy(currentUser?.gender)}
+            </span>
           </div>
           <span>メールアドレス</span>
           <div className="mb-3">
@@ -56,16 +59,16 @@ export const EditForm = () => {
               type="email"
               defaultValue={currentUser?.email}
               className="border-2 w-full p-1"
-              {...register("email")}
+              {...register("email", { required: true })}
             />
           </div>
-          {/* <span>パスワード</span>
+          <span>パスワード</span>
           <div className="mb-3">
             <input
               id="password"
               type="password"
               className="border-2 w-full p-1"
-              {...register('password')}
+              {...register("password", { required: true })}
             />
           </div>
           <span>パスワード(確認)</span>
@@ -74,9 +77,9 @@ export const EditForm = () => {
               id="passwordConfirmation"
               type="password"
               className="border-2 w-full p-1"
-              {...register('passwordConfirmation')}
+              {...register("passwordConfirmation", { required: true })}
             />
-          </div> */}
+          </div>
           <span>プロフィール画像</span>
           <input type="file" className="mt-1" />
         </div>

@@ -1,4 +1,4 @@
-export const genderBy = (gender: string) => {
+export const genderBy = (gender: string | undefined) => {
   switch (gender) {
     case "male":
       return "男性";

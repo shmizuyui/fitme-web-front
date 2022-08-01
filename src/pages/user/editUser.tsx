@@ -1,5 +1,7 @@
+import { useEffect } from "react";
 import { GlobalContainer } from "../../components/common/GlobalContainer";
 import { EditForm } from "../../components/pages/user/EditForm";
+import { useEdit } from "../../hooks/user/useEdit";
 
 const EditUser = () => {
   return (

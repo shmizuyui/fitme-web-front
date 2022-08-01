@@ -16,7 +16,7 @@ export const AuthContext = createContext(
 );
 
 export const useCurrentUser = () => {
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
   const [isSignedIn, setIsSignedIn] = useState<boolean>(false);
   const [currentUser, setCurrentUser] = useState<User | undefined>();
   const [error, setError] = useState<string>("");
@@ -39,7 +39,7 @@ export const useCurrentUser = () => {
       })
       .then((response) => {
         setIsSignedIn(true);
-        setCurrentUser(response.data.data);
+        setCurrentUser(response?.data.data);
       })
       .catch(() => setError("No current user"));
     setLoading(false);

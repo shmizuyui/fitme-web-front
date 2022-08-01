@@ -11,17 +11,16 @@ export const useEdit = () => {
     const params = {
       name: formParams.name,
       name_kana: formParams.nameKana,
-      // gender: formParams.gender,
-      email: "test3@exapmle.com",
-      // password: formParams.password,
-      // password_confirmation: formParams.passwordConfirmation,
-      // image: formParams.image,
+      email: formParams.email,
+      password: formParams.password,
+      password_confirmation: formParams.passwordConfirmation,
+      avatar: formParams?.avatar || null,
     };
     setLoading(true);
     await apiClient
       .put("/api/v1/user/auth", params)
       .then((response) => {
-        setCurrentUser(response.data);
+        setCurrentUser(response.data.data);
         setIsSignedIn(true);
         localStorage.setItem("_access_token", response.headers["access-token"]);
         localStorage.setItem("_client", response.headers["client"]);

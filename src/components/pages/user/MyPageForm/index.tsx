@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../../hooks/user/useCurrentUser";
 import { handleRouter } from "../../../../utils/router";
+import { UserDetail } from "../UserDetail";
 
 export const MyPageForm = () => {
   const { isSignedIn, currentUser, loading } = useContext(AuthContext);
@@ -8,14 +9,14 @@ export const MyPageForm = () => {
     <div className="mx-auto mt-12">
       <div className="border-b-2 text-center mb-3">
         <img
-          src="/test.jpg"
+          src={currentUser?.avatar}
           alt=""
           className="block mx-auto rounded-full"
           width={150}
         />
         <p className="text-2xl my-5 font-bold">{currentUser?.name}</p>
         <button
-          onClick={handleRouter("/user/userEdit")}
+          onClick={handleRouter("/user/editUser")}
           className="w-1/6 border-2 mb-2 text-lg"
         >
           会員情報

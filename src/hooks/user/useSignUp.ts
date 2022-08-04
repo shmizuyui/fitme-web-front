@@ -20,7 +20,7 @@ export const useSignUp = () => {
     await apiClient
       .post("/api/v1/user/auth", params)
       .then((response) => {
-        setCurrentUser(response.data);
+        setCurrentUser(response.data.data);
         setIsSignedIn(true);
         localStorage.setItem("_access_token", response.headers["access-token"]);
         localStorage.setItem("_client", response.headers["client"]);

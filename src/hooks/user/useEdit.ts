@@ -8,17 +8,27 @@ export const useEdit = () => {
   const { setLoading, setIsSignedIn, setCurrentUser, setError } =
     useContext(AuthContext);
   const editUser = async (formParams: FormParams) => {
+    const token = localStorage.getItem("_access_token");
+    const client = localStorage.getItem("_client");
+    const uid = localStorage.getItem("_uid");
     const params = {
       name: formParams.name,
       name_kana: formParams.nameKana,
       email: formParams.email,
       password: formParams.password,
       password_confirmation: formParams.passwordConfirmation,
-      avatar: formParams?.avatar || null,
     };
+
+    if (!token || !client || !uid) return;
     setLoading(true);
     await apiClient
-      .put("/api/v1/user/auth", params)
+      .put("/api/v1/user/auth", params, {
+        headers: {
+          access_token: token,
+          client: client,
+          uid: uid,
+        },
+      })
       .then((response) => {
         setCurrentUser(response.data.data);
         setIsSignedIn(true);

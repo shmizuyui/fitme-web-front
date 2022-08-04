@@ -6,6 +6,6 @@ export type User = {
   name: string;
   name_kana: string;
   gender: string;
-  avatar?: string;
+  avatar?: { url: string };
   allow_password_change: boolean;
 };

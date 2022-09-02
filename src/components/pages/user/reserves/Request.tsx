@@ -60,7 +60,6 @@ export const ReserveRequest = ({ lesson }: Props) => {
       <div className="text-center mt-5">
         <button
           className="bg-gray-700 text-white px-10 text-lg"
-          type="submit"
           onClick={openModal}
         >
           予約確認へ

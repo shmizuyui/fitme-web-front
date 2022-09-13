@@ -6,15 +6,14 @@ import { ReserveConfirm } from "./ReserveConfirm";
 type Props = {
   lesson: Lesson;
 };
-export type FormPrams = {
-  date: string;
-  time: string;
+export type FormParams = {
+  date: number;
+  startTime: number;
 };
 export const ReserveRequest = ({ lesson }: Props) => {
   const { isOpen, openModal, closeModal } = useConfirm();
 
-  const { register, getValues } = useForm<FormPrams>();
-
+  const { register, getValues } = useForm<FormParams>({});
   return (
     <>
       <div className="mx-40 p-2 border-2 relative">
@@ -38,7 +37,6 @@ export const ReserveRequest = ({ lesson }: Props) => {
             <label className="font-bold">
               日付
               <input
-                id="date"
                 type="date"
                 className="border-2 mx-1"
                 {...register("date")}
@@ -47,10 +45,9 @@ export const ReserveRequest = ({ lesson }: Props) => {
             <label className="font-bold">
               開始時間
               <input
-                id="time"
                 type="time"
                 className="border-2 mx-1"
-                {...register("time")}
+                {...register("startTime")}
               />
             </label>
             <span className="font-bold">〜</span>

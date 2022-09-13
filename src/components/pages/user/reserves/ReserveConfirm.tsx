@@ -62,12 +62,12 @@ export const ReserveConfirm = ({
                   </div>
                   <div className="flex">
                     <p className="pl-2 py-4 bg-gray-200 w-1/4">開始日時</p>
-                    <p className="pl-2 py-4 font-bold">
+                    <div className="pl-2 py-4 font-bold">
                       <span>日付：</span>
                       {values.date}
                       <span className="ml-2">開始時間：</span>
                       {values.startTime}〜
-                    </p>
+                    </div>
                   </div>
                 </div>
                 <div className="text-center mt-5">

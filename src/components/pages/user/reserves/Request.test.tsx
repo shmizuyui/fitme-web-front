@@ -22,12 +22,20 @@ describe("ReserveRequest", () => {
   test("コンポーネントをレンダリングすること", () => {
     const { container } = render(<ReserveRequest lesson={lesson} />);
     const paragraphs = container.getElementsByTagName("p");
+    const buttons = container.getElementsByTagName("button");
 
-    expect(paragraphs.length).toBe(3);
-    expect(paragraphs[0].textContent).toBe(lesson.title);
-    expect(paragraphs[1].textContent).toBe(
+    expect(paragraphs.length).toBe(7);
+    expect(paragraphs[0].textContent).toBe("選択したメニュー");
+    expect(paragraphs[1].textContent).toBe(lesson.title);
+    expect(paragraphs[2].textContent).toBe("金額 / 所要時間");
+    expect(paragraphs[3].textContent).toBe(
       `¥${lesson.price} / ${lesson.time}min`
     );
-    expect(paragraphs[2].textContent).toBe(lesson.trainer.name);
+    expect(paragraphs[4].textContent).toBe("トレーナー");
+    expect(paragraphs[5].textContent).toBe(lesson.trainer.name);
+    expect(paragraphs[6].textContent).toBe("ご希望の日時");
+
+    expect(buttons.length).toBe(1);
+    expect(buttons[0].textContent).toBe("予約確認へ");
   });
 });

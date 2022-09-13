@@ -14,10 +14,9 @@ export const useRequest = () => {
     lesson_id: number;
     start_at: Date;
   }) => {
-    console.log(params);
     setIsLoading(true);
     await apiClient
-      .post("/api/v1/user/reservations", { params: params })
+      .post("/api/v1/user/reservations", params)
       .then((response) => {
         setData(response.data);
         Router.push("/user/reserves/request");

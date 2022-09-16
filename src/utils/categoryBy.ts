@@ -3,7 +3,7 @@ export const categoryBy = (category: string) => {
     case "muscle":
       return "筋トレ";
     case "aerobic_exercise":
-      return "エアロビクス";
+      return "有酸素運動";
     case "yoga":
       return "ヨガ";
     case "pilates":

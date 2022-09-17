@@ -22,7 +22,6 @@ export const useRequest = () => {
       start_at: formParams.startAt,
       user_id: currentUser?.id,
     };
-    console.log(params);
     setIsLoading(true);
     await apiClient
       .post("/api/v1/user/reservations", params)

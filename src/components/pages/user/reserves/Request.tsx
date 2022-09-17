@@ -12,7 +12,6 @@ export type FormParams = {
 };
 export const ReserveRequest = ({ lesson }: Props) => {
   const { isOpen, openModal, closeModal } = useConfirm();
-
   const { register, getValues } = useForm<FormParams>({});
   return (
     <>

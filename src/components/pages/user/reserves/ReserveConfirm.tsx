@@ -24,8 +24,8 @@ export const ReserveConfirm = ({
       "Asia/Tokyo"
     );
     const params = {
-      lesson_id: lesson.id,
-      start_at: startAt,
+      lessonId: lesson.id,
+      startAt: startAt,
     };
     reserveRequest(params);
   };

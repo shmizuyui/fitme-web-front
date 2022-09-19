@@ -28,6 +28,7 @@ export const useLessons = () => {
       min_price: formParams?.minPrice || null,
       genders: formParams?.genders || null,
     };
+    console.log(params);
     setIsLoading(true);
     await apiClient
       .get("/api/v1/user/lessons", { params: params })

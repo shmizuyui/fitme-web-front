@@ -14,13 +14,23 @@ const Lessons = () => {
 
   useEffect(() => {
     if (!data) fetchLessons(1, formParams);
+    const category = localStorage.getItem("category");
+    if (category) {
+      setFormParams({
+        categories: ["category"],
+        minPrice: null,
+        maxPrice: null,
+        genders: [],
+      });
+      localStorage.removeItem("category");
+    }
   }, [data]);
 
   if (error) return <Errors>{error}</Errors>;
 
   return (
     <GlobalContainer title="レッスン一覧">
-      <LessonSearch fetchLessons={fetchLessons} setFormParams={setFormParams} />
+      <LessonSearch />
       {isLoading ? (
         <Loading />
       ) : (

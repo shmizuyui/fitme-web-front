@@ -16,10 +16,12 @@ export type Others = {
   setFormParams: (params: FormParams) => void;
   formParams: FormParams;
 };
-export const useLessons = () => {
+export const useLessons = (categoryParams: FormParams) => {
   const { data, setData, error, setError, isLoading, setIsLoading } =
     useApiBase<LessonsResponse>();
-  const [formParams, setFormParams] = useState<FormParams | null>(null);
+  const [formParams, setFormParams] = useState<FormParams | null>(
+    categoryParams
+  );
   const fetchLessons = async (pageIndex: number, formParams: FormParams) => {
     const params = {
       page: pageIndex,

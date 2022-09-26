@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Lesson } from "../../../../../apis/models/lesson";
 import { Trainer } from "../../../../../apis/models/trainer";
-import { Others, useLessons } from "../../../../../hooks/user/useLessons";
+import { useLessons } from "../../../../../hooks/user/useLessons";
 import { useLessonSearch } from "../../../../../hooks/user/useLessonSearch";
 import { categoryBy } from "../../../../../utils/categoryBy";
 import { genderBy } from "../../../../../utils/genderBy";
@@ -15,10 +15,17 @@ export type FormParams = {
   maxPrice: Lesson["price"] | null;
   genders: Trainer["gender"][];
 };
-
-export const LessonSearch = () => {
+type Props = {
+  setFormParams: (params: FormParams) => void;
+  fetchLessons: (pageIndex: number, formParams: FormParams) => void;
+  formParams: FormParams;
+};
+export const LessonSearch = ({
+  setFormParams,
+  fetchLessons,
+  formParams,
+}: Props) => {
   const { data, error, isLoading } = useLessonSearch();
-  const { fetchLessons, setFormParams, formParams } = useLessons();
   const { register, handleSubmit, setValue } = useForm<FormParams>({
     mode: "onChange",
   });
@@ -29,7 +36,7 @@ export const LessonSearch = () => {
 
   useEffect(() => {
     // formParams.categories => ['muscle']
-    setValue("categories", ["muscle"]);
+    setValue("categories", formParams.categories);
   }, [formParams, setValue]);
 
   if (error) return <Errors>{error}</Errors>;

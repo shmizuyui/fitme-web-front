@@ -1,10 +1,11 @@
+import { AboutForm } from "../../components/common/AboutForm";
+import { GlobalContainer } from "../../components/common/GlobalContainer";
+
 const About = () => {
   return (
-    <div className="h-screen w-3/4 mx-auto">
-      <div className="pt-28">
-        <h1 className="font-bold">Fitmeとは</h1>
-      </div>
-    </div>
+    <GlobalContainer title="Fitmeとは">
+      <AboutForm></AboutForm>
+    </GlobalContainer>
   );
 };
 

@@ -7,20 +7,35 @@ import { Errors } from "../../../components/common/Errors";
 import { useEffect } from "react";
 import { LessonSearch } from "../../../components/pages/user/lessons/LessonSearch";
 import { Empty } from "../../../components/common/Empty";
-
 const Lessons = () => {
   const { data, error, isLoading, fetchLessons, setFormParams, formParams } =
     useLessons();
+  useEffect(() => {
+    const category = localStorage.getItem("category");
+    const params = {
+      categories: category ? [category] : [],
+      minPrice: null,
+      maxPrice: null,
+      genders: [],
+    };
+    setFormParams(params);
+  }, []);
 
   useEffect(() => {
-    if (!data) fetchLessons(1, formParams);
-  }, [data]);
+    if (!data && formParams) {
+      fetchLessons(1, formParams);
+      localStorage.removeItem("category");
+    }
+  }, [data, formParams]);
 
   if (error) return <Errors>{error}</Errors>;
-
   return (
     <GlobalContainer title="レッスン一覧">
-      <LessonSearch fetchLessons={fetchLessons} setFormParams={setFormParams} />
+      <LessonSearch
+        setFormParams={setFormParams}
+        fetchLessons={fetchLessons}
+        formParams={formParams}
+      />
       {isLoading ? (
         <Loading />
       ) : (

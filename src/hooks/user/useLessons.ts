@@ -16,12 +16,10 @@ export type Others = {
   setFormParams: (params: FormParams) => void;
   formParams: FormParams;
 };
-export const useLessons = (categoryParams: FormParams) => {
+export const useLessons = () => {
   const { data, setData, error, setError, isLoading, setIsLoading } =
     useApiBase<LessonsResponse>();
-  const [formParams, setFormParams] = useState<FormParams | null>(
-    categoryParams
-  );
+  const [formParams, setFormParams] = useState<FormParams | null>(null);
   const fetchLessons = async (pageIndex: number, formParams: FormParams) => {
     const params = {
       page: pageIndex,
@@ -30,7 +28,6 @@ export const useLessons = (categoryParams: FormParams) => {
       min_price: formParams?.minPrice || null,
       genders: formParams?.genders || null,
     };
-    console.log(params);
     setIsLoading(true);
     await apiClient
       .get("/api/v1/user/lessons", { params: params })

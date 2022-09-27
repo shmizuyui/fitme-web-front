@@ -18,7 +18,7 @@ export const HomePage = () => {
         </div>
       </div>
       <div className="w-2/3 mx-auto mt-10">
-        <h2 className="font-bold text-2xl text-center mb-3">ジャンル</h2>
+        <h2 className="font-bold text-3xl text-center mb-3">ジャンル</h2>
         <ul className="flex flex-wrap justify-center text-center text-xl">
           <Category image="/muscle.jpg" value="muscle">
             筋トレ

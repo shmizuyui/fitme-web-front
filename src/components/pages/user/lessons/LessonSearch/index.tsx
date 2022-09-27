@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Lesson } from "../../../../../apis/models/lesson";
 import { Trainer } from "../../../../../apis/models/trainer";
-import { useLessons } from "../../../../../hooks/user/useLessons";
 import { useLessonSearch } from "../../../../../hooks/user/useLessonSearch";
 import { categoryBy } from "../../../../../utils/categoryBy";
 import { genderBy } from "../../../../../utils/genderBy";
@@ -35,8 +34,9 @@ export const LessonSearch = ({
   };
 
   useEffect(() => {
-    // formParams.categories => ['muscle']
-    setValue("categories", formParams.categories);
+    if (formParams) {
+      setValue("categories", formParams.categories);
+    }
   }, [formParams, setValue]);
 
   if (error) return <Errors>{error}</Errors>;

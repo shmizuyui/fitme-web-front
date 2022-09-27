@@ -8,22 +8,25 @@ import { useEffect } from "react";
 import { LessonSearch } from "../../../components/pages/user/lessons/LessonSearch";
 import { Empty } from "../../../components/common/Empty";
 const Lessons = () => {
-  const category = localStorage.getItem("category");
-  const params = {
-    categories: category ? [category] : [],
-    minPrice: null,
-    maxPrice: null,
-    genders: [],
-  };
   const { data, error, isLoading, fetchLessons, setFormParams, formParams } =
-    useLessons(params);
+    useLessons();
+  useEffect(() => {
+    const category = localStorage.getItem("category");
+    const params = {
+      categories: category ? [category] : [],
+      minPrice: null,
+      maxPrice: null,
+      genders: [],
+    };
+    setFormParams(params);
+  }, []);
 
   useEffect(() => {
-    if (!data) {
+    if (!data && formParams) {
       fetchLessons(1, formParams);
       localStorage.removeItem("category");
     }
-  }, [data]);
+  }, [data, formParams]);
 
   if (error) return <Errors>{error}</Errors>;
   return (

@@ -1,6 +1,7 @@
 import { Lesson } from "../../../../../apis/models/lesson";
 import { categoryBy } from "../../../../../utils/categoryBy";
 import { genderBy } from "../../../../../utils/genderBy";
+import { handleRouter } from "../../../../../utils/router";
 
 type Props = {
   lesson: Lesson;
@@ -34,6 +35,7 @@ export const LessonDetail = ({ lesson }: Props) => {
           </p>
           <div className="text-center">
             <button
+              onClick={handleRouter(`/user/reserves/${lesson.id}`)}
               className="text-white rounded-md bg-teal-500
               py-2 px-4 text-xl font-bold"
             >

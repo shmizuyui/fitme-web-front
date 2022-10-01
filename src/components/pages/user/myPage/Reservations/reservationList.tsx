@@ -1,4 +1,4 @@
-import { Reservation } from "../../../../../apis/models/Reservation";
+import { Reservation } from "../../../../../apis/models/reservation";
 import { statusBy } from "../../../../../utils/statusBy";
 
 type Props = {

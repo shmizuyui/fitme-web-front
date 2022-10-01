@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import useSWR from "swr";
 import { fetcher } from "../../apis/client";
-import { Reservation } from "../../apis/models/Reservation";
+import { Reservation } from "../../apis/models/reservation";
 import { handleErrorMessage } from "../../utils/errorMessage";
 import { BaseResponse } from "../BaseResponse";
 import { AuthContext } from "./useCurrentUser";

@@ -10,7 +10,8 @@ describe("sendRequest", () => {
     const { container } = render(<SendRequest />);
     const anchors = container.getElementsByTagName("a");
 
-    expect(anchors.length).toBe(1);
+    expect(anchors.length).toBe(2);
     expect(anchors[0].textContent).toBe("トップに戻る");
+    expect(anchors[1].textContent).toBe("予約一覧");
   });
 });

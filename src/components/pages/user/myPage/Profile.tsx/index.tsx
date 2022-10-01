@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { AuthContext } from "../../../../hooks/user/useCurrentUser";
-import { handleRouter } from "../../../../utils/router";
+import { AuthContext } from "../../../../../hooks/user/useCurrentUser";
+import { handleRouter } from "../../../../../utils/router";
 
-export const MyPageForm = () => {
+export const Profile = () => {
   const { isSignedIn, currentUser } = useContext(AuthContext);
 
   return (
@@ -19,13 +19,10 @@ export const MyPageForm = () => {
         )}
         <button
           onClick={handleRouter("/user/editUser")}
-          className="w-1/5 border-2 mb-2 text-lg"
+          className="w-1/5 border-2 mb-2"
         >
           プロフィール編集
         </button>
-      </div>
-      <div className="mx-20">
-        <p className="text-xl font-bold">予約一覧</p>
       </div>
     </div>
   );

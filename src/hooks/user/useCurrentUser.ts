@@ -44,7 +44,6 @@ export const useCurrentUser = () => {
       .catch(() => setError("No current user"));
     setLoading(false);
   };
-
   return {
     getCurrentUser,
     loading,

@@ -1,7 +1,7 @@
 import Router from "next/router";
 import { useContext } from "react";
 import { apiClient } from "../../apis/client";
-import { Reservation } from "../../apis/models/Reservation";
+import { Reservation } from "../../apis/models/reservation";
 import { useApiBase } from "./useApiBase";
 import { AuthContext } from "./useCurrentUser";
 

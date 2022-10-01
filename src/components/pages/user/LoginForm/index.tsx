@@ -43,7 +43,7 @@ export const LoginForm = () => {
             <input
               id="password"
               type="password"
-              className="border-2 w-full p-1"
+              className="border-2 w-full"
               {...register("password", {
                 required: true,
               })}

@@ -1,9 +1,9 @@
 import { render } from "@testing-library/react";
-import { MyPageForm } from ".";
+import { Profile } from ".";
 
-describe("MyPageForm", () => {
+describe("Profile", () => {
   test("コンポーネントをレンダリングすること", () => {
-    const { container } = render(<MyPageForm />);
+    const { container } = render(<Profile />);
     const buttons = container.getElementsByTagName("button");
 
     expect(buttons.length).toBe(1);

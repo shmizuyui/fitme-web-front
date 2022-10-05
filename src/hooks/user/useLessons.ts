@@ -40,7 +40,6 @@ export const useLessons = () => {
       genders: formParams?.genders || null,
       order: order,
     };
-    console.log(params);
     setIsLoading(true);
     await apiClient
       .get("/api/v1/user/lessons", { params: params })

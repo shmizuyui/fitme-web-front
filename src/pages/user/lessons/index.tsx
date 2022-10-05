@@ -7,9 +7,18 @@ import { Errors } from "../../../components/common/Errors";
 import { useEffect } from "react";
 import { LessonSearch } from "../../../components/pages/user/lessons/LessonSearch";
 import { Empty } from "../../../components/common/Empty";
+import { LessonSort } from "../../../components/pages/user/lessons/LessonSort";
 const Lessons = () => {
-  const { data, error, isLoading, fetchLessons, setFormParams, formParams } =
-    useLessons();
+  const {
+    data,
+    error,
+    isLoading,
+    fetchLessons,
+    setFormParams,
+    formParams,
+    setOrder,
+    order,
+  } = useLessons();
   useEffect(() => {
     const category = localStorage.getItem("category");
     const params = {
@@ -23,7 +32,7 @@ const Lessons = () => {
 
   useEffect(() => {
     if (!data && formParams) {
-      fetchLessons(1, formParams);
+      fetchLessons(1, formParams, order);
       localStorage.removeItem("category");
     }
   }, [data, formParams]);
@@ -35,6 +44,12 @@ const Lessons = () => {
         setFormParams={setFormParams}
         fetchLessons={fetchLessons}
         formParams={formParams}
+        order={order}
+      />
+      <LessonSort
+        fetchLessons={fetchLessons}
+        formParams={formParams}
+        setOrder={setOrder}
       />
       {isLoading ? (
         <Loading />
@@ -50,8 +65,12 @@ const Lessons = () => {
             isLastPage={
               data.current_page === data.total_page || data.lessons.length === 0
             }
-            onPageBack={() => fetchLessons(data.current_page - 1, formParams)}
-            onPageNext={() => fetchLessons(data.current_page + 1, formParams)}
+            onPageBack={() =>
+              fetchLessons(data.current_page - 1, formParams, order)
+            }
+            onPageNext={() =>
+              fetchLessons(data.current_page + 1, formParams, order)
+            }
           />
         </>
       )}

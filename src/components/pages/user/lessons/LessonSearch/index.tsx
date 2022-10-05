@@ -16,13 +16,19 @@ export type FormParams = {
 };
 type Props = {
   setFormParams: (params: FormParams) => void;
-  fetchLessons: (pageIndex: number, formParams: FormParams) => void;
+  fetchLessons: (
+    pageIndex: number,
+    formParams: FormParams,
+    order: string
+  ) => void;
   formParams: FormParams;
+  order: string;
 };
 export const LessonSearch = ({
   setFormParams,
   fetchLessons,
   formParams,
+  order,
 }: Props) => {
   const { data, error, isLoading } = useLessonSearch();
   const { register, handleSubmit, setValue } = useForm<FormParams>({
@@ -30,7 +36,7 @@ export const LessonSearch = ({
   });
   const onSubmit = (params: FormParams) => {
     setFormParams(params);
-    fetchLessons(1, params);
+    fetchLessons(1, params, order);
   };
 
   useEffect(() => {

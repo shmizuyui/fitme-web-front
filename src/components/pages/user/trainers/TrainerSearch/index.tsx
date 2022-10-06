@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 import { Lesson } from "../../../../../apis/models/lesson";
 import { Trainer } from "../../../../../apis/models/trainer";
-import { Others } from "../../../../../hooks/user/useTrainers";
 import { useTrainerSearch } from "../../../../../hooks/user/useTrainerSearch";
 import { categoryBy } from "../../../../../utils/categoryBy";
 import { genderBy } from "../../../../../utils/genderBy";
@@ -14,16 +13,28 @@ export type FormParams = {
   minHistoryYear: Trainer["history_year"];
 };
 
-type Props = Pick<Others, "fetchTrainers" | "setFormParams">;
+type Props = {
+  setFormParams: (params: FormParams) => void;
+  fetchTrainers: (
+    pageIndex: number,
+    formParams: FormParams,
+    order: string
+  ) => void;
+  order: string;
+};
 
-export const TrainerSearch = ({ fetchTrainers, setFormParams }: Props) => {
+export const TrainerSearch = ({
+  fetchTrainers,
+  setFormParams,
+  order,
+}: Props) => {
   const { data, error, isLoading } = useTrainerSearch();
   const { register, handleSubmit } = useForm<FormParams>({
     mode: "onChange",
   });
   const onSubmit = (params: FormParams) => {
     setFormParams(params);
-    fetchTrainers(1, params);
+    fetchTrainers(1, params, order);
   };
 
   if (error) return <Errors>{error}</Errors>;

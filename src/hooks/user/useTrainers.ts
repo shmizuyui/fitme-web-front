@@ -11,20 +11,32 @@ type TrainersResponse = {
   trainers: Trainer[];
 } & Pagination;
 export type Others = {
-  fetchTrainers: (pageIndex: number, formParams: FormParams) => void;
+  fetchTrainers: (
+    pageIndex: number,
+    formParams: FormParams,
+    order: string
+  ) => void;
   setFormParams: (params: FormParams) => void;
   formParams: FormParams;
+  setOrder: (order: string) => void;
+  order: string;
 };
 export const useTrainers = () => {
   const { data, setData, error, setError, isLoading, setIsLoading } =
     useApiBase<TrainersResponse>();
+  const [order, setOrder] = useState<string>("created_at_desc");
   const [formParams, setFormParams] = useState<FormParams | null>(null);
-  const fetchTrainers = async (pageIndex: number, formParams: FormParams) => {
+  const fetchTrainers = async (
+    pageIndex: number,
+    formParams: FormParams,
+    order: string
+  ) => {
     const params = {
       page: pageIndex,
       genders: formParams?.genders || null,
       categories: formParams?.categories || null,
       min_history_year: formParams?.minHistoryYear || null,
+      order: order,
     };
     setIsLoading(true);
     await apiClient
@@ -42,5 +54,7 @@ export const useTrainers = () => {
     fetchTrainers,
     formParams,
     setFormParams,
+    order,
+    setOrder,
   } as BaseResponse<TrainersResponse> & Others;
 };

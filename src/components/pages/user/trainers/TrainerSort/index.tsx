@@ -21,8 +21,8 @@ export const TrainerSort = ({ fetchTrainers, formParams, setOrder }: Props) => {
       <div>
         <select className="p-1 m-2 rounded text-center" onChange={onChange}>
           <option value={"created_at_desc"}>新着順</option>
-          <option value={"low_history"}>トレーナー歴が短い順</option>
-          <option value={"high_history"}>トレーナー歴が長い順</option>
+          <option value={"short_history"}>トレーナー歴が短い順</option>
+          <option value={"long_history"}>トレーナー歴が長い順</option>
         </select>
       </div>
     </div>

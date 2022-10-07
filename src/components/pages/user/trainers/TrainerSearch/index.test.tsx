@@ -8,6 +8,7 @@ const useTrainerSearchMock = useTrainerSearch as jest.Mock;
 const fetchTrainers = (pageIndex: number, formParams: FormParams) =>
   console.log(pageIndex, formParams);
 const setFormParams = (params: FormParams) => console.log(params);
+const order = "order";
 
 describe("TrainerSearch", () => {
   useTrainerSearchMock.mockImplementationOnce(() => {
@@ -22,6 +23,7 @@ describe("TrainerSearch", () => {
       <TrainerSearch
         fetchTrainers={fetchTrainers}
         setFormParams={setFormParams}
+        order={order}
       />
     );
     const contents = container.getElementsByTagName("span");

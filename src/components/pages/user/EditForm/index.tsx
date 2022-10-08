@@ -12,6 +12,7 @@ export type FormParams = {
   email: string;
   password: string;
   passwordConfirmation: string;
+  avatar: File[];
 };
 export const EditForm = () => {
   const { currentUser } = useContext(AuthContext);
@@ -116,11 +117,13 @@ export const EditForm = () => {
             )}
           </div>
           <span>プロフィール画像</span>
+          <img src={currentUser?.avatar?.url} />
           <input
-            type="file"
             id="avatar"
+            type="file"
             accept="image/png,image/jpeg,image/gif"
             className="mt-1"
+            {...register("avatar")}
           />
         </div>
         <SignButton>更新</SignButton>

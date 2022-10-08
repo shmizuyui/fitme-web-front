@@ -17,6 +17,7 @@ export const useEdit = () => {
       email: formParams.email,
       password: formParams.password,
       password_confirmation: formParams.passwordConfirmation,
+      avatar: formParams.avatar[0]
     };
 
     if (!token || !client || !uid) return;

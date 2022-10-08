@@ -17,7 +17,6 @@ const MyApp = ({ Component, pageProps }) => {
     error,
     setError,
   } = useCurrentUser();
-
   useEffect(() => {
     getCurrentUser();
   }, [setCurrentUser]);

@@ -19,7 +19,6 @@ export const useCurrentUser = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [isSignedIn, setIsSignedIn] = useState<boolean>(false);
   const [currentUser, setCurrentUser] = useState<User | undefined>();
-  console.log(currentUser);
   const [error, setError] = useState<string>("");
 
   const getCurrentUser = async () => {

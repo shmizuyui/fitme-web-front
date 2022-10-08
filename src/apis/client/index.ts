@@ -6,4 +6,7 @@ export const fetcher = (url: string) =>
 export const apiClient = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
   responseType: "json",
+  headers: {
+    "Content-Type": "multipart/form-data",
+  },
 });

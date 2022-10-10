@@ -12,13 +12,12 @@ export const LessonCard = ({ lesson, trainer }: Props) => {
   return (
     <Link href={`/user/lessons/${lesson.id}`}>
       <a className="w-3/6">
-        <li className="flex m-2 p-2 border-2 border-gray-500">
+        <li className="flex m-2 p-2 border-2 border-gray-500 h-52">
           <div>
             <img
               src={trainer ? trainer.image : lesson.trainer.image}
               alt=""
-              height={200}
-              width={200}
+              width={350}
             />
             <div className="text-center">
               <span className="text-xl">

@@ -11,7 +11,7 @@ export const Profile = () => {
         <img
           src={currentUser?.avatar?.url ?? "/default.png"}
           alt=""
-          className="block mx-auto rounded-full"
+          className="block mx-auto rounded-md"
           width={150}
         />
         {isSignedIn && currentUser && (

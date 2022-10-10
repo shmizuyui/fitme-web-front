@@ -14,10 +14,10 @@ export const TrainerCard = ({ trainer }: Props) => {
   return (
     <Link href={`/user/trainers/${trainer.id}`}>
       <a className="w-3/6">
-        <li className="flex m-2 p-2 border-2 border-gray-500">
+        <li className="flex m-2 p-2 border-2 border-gray-500 h-52">
           <div>
-            <img src={trainer.image} alt="" height={180} width={180} />
-            <p className="text-center">({genderBy(trainer.gender)})</p>
+            <img src={trainer.image} alt="" className="h-5/6" width={200} />
+            <p className="text-center mt-3">({genderBy(trainer.gender)})</p>
           </div>
           <div
             className="flex flex-col justify-between

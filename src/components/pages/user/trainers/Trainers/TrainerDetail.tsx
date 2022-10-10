@@ -17,7 +17,7 @@ export const TrainerDetail = ({ trainer }: Props) => {
         <div className="w-1/3 mr-2">
           <img src={trainer.image} alt="" className="w-screen" />
         </div>
-        <div className="flex-auto">
+        <div className="flex-auto pl-4">
           <div className="mb-4">
             {categories.map((category: string) => (
               <span className="rounded border-2 p-1 mr-1" key={trainer.id}>
@@ -41,13 +41,13 @@ export const TrainerDetail = ({ trainer }: Props) => {
             <p className="mb-4 border-b-2 text-lg">経歴</p>
             <p>{trainer.career}</p>
           </div>
-          <div className="mt-8">
+          <div className="my-8">
             <p className="mb-4 border-b-2 text-lg">メッセージ</p>
             <p>{trainer.message}</p>
           </div>
         </div>
       </div>
-      <div className="mt-12">
+      <div className="mt-6">
         <p className="my-4 border-b-4 text-2xl text-center font-bold border-yellow-200">
           このトレーナーのレッスン一覧
         </p>

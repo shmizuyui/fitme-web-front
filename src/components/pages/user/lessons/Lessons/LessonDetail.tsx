@@ -10,15 +10,15 @@ type Props = {
 export const LessonDetail = ({ lesson }: Props) => {
   return (
     <div>
-      <div className="flex">
+      <div className="flex border-t-4 pt-2 border-teal-500">
         <div className="mr-2">
-          <img src={lesson.trainer.image} alt="" height={200} width={200} />
+          <img src={lesson.trainer.image} alt="" width={300} />
           <div className="text-center">
             <span className="text-xl">{lesson.trainer.name}</span>
             <span>({genderBy(lesson.trainer.gender)})</span>
           </div>
         </div>
-        <div className="flex-auto">
+        <div className="flex-auto pl-2">
           <div className="text-right">
             <span className="rounded border-2 text-xl p-1">
               {categoryBy(lesson.category)}
@@ -26,7 +26,7 @@ export const LessonDetail = ({ lesson }: Props) => {
           </div>
           <p
             className="text-center text-2xl font-bold
-        mt-4 border-b-4 border-teal-500"
+        mt-4 border-b-4 border-teal-700"
           >
             {lesson.title}
           </p>
@@ -44,7 +44,7 @@ export const LessonDetail = ({ lesson }: Props) => {
           </div>
         </div>
       </div>
-      <div className="flex my-4 py-1 border-b-2 text-xl">
+      <div className="flex my-4 py-1 border-b-4 text-xl border-teal-500">
         <p>内容</p>
       </div>
       <p className="text-xl">{lesson.content}</p>

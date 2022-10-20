@@ -5,7 +5,12 @@ import { AuthContext, useCurrentUser } from "../hooks/user/useCurrentUser";
 import { useEffect } from "react";
 import { Errors } from "../components/common/Errors";
 
-const MyApp = ({ Component, pageProps }) => {
+type Props = {
+  Component: any;
+  pageProps: any;
+};
+
+const MyApp = ({ Component, pageProps }: Props) => {
   const {
     getCurrentUser,
     loading,
